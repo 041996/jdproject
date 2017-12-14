@@ -1,0 +1,28 @@
+$(window).scroll(function(){
+	// 判断滚动条的滑动值控制显示头部隐藏导航条
+	// console.log($(document).scrollTop());
+	// console.log($('#backTop').offset().top);
+	// console.log($(window).height());
+
+	if($(document).scrollTop()> 1){
+		$('#backTop').fadeIn('slow');
+		// $('#backTop').css('display','block');
+	}else{
+		$('#backTop').css('display','none');
+	}
+})
+
+for(var i=0;i<$('#photos ul li').length;i++){
+	// 遍历图片
+	$('#photos ul li').each(function(i){
+		// console.log($('img'));
+		// 设置每张图片的旋转
+		$('#photos ul li').eq(i).mouseenter(function(){
+			$(this).children().css({transform:'rotatey(360deg)',transition:'transform 1.5s ease'});
+			// $(this).siblings().css({transform:'rotatey(0deg)'});
+		}).mouseleave(function(){
+			$(this).children().css({transform:'rotatey(0deg)'});
+		})
+	})
+}
+
